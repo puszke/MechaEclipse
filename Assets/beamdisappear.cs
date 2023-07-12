@@ -14,7 +14,7 @@ public class beamdisappear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        w -= 0.01f;
+        w -= 0.001f;
         w = Mathf.Clamp(w, 0, 1);
         GetComponent<LineRenderer>().widthMultiplier = w;
     }
