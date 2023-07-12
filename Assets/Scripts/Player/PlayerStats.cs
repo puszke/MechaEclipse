@@ -21,4 +21,5 @@ public class PlayerStats : MonoBehaviour
     public float boost_capacity = 100;
     public float boost_power = 25;
     public float boost_max_power = 50;
+    public float base_damage = 3;
 }

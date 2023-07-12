@@ -26,6 +26,11 @@ public class Gun : MonoBehaviour
             GameObject newFlash2 = Instantiate(groundBeam);
             newFlash2.transform.position = hit.point+new Vector3(0,2,0);
             Destroy(newFlash2,2);
+            
+            if(hit.transform.tag=="Enemy")
+            {
+                hit.transform.GetComponent<EnemyHealth>().DealDamage(PlayerStats.instance.base_damage);
+            }
         }
     }
     // Start is called before the first frame update
