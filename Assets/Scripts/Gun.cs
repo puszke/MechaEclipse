@@ -14,22 +14,25 @@ public class Gun : MonoBehaviour
         Camera.main.GetComponent<CameraShake>().shakeDuration = 0.1f;
         foreach (Transform t in transform)
         {
-            Debug.Log(t.name);
-            GameObject newFlash = Instantiate(muzzleFlash);
-            newFlash.transform.position = t.transform.position;
-            newFlash.transform.rotation = Camera.main.transform.rotation;
-            newFlash.transform.parent = t.transform;
-            Destroy(newFlash, 2);
-
-            RaycastHit hit;
-            Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward+new Vector3(Random.Range(-PlayerStats.instance.recoil/100, PlayerStats.instance.recoil/100), 0, 0)), out hit, Mathf.Infinity, layerMask);
-            GameObject newFlash2 = Instantiate(groundBeam);
-            newFlash2.transform.position = hit.point+new Vector3(0,2,0);
-            Destroy(newFlash2,2);
-            
-            if(hit.transform.tag=="Enemy")
+            if (t.transform.name == "Turret")
             {
-                hit.transform.GetComponent<EnemyHealth>().DealDamage(PlayerStats.instance.base_damage);
+                Debug.Log(t.name);
+                GameObject newFlash = Instantiate(muzzleFlash);
+                newFlash.transform.position = t.transform.position;
+                newFlash.transform.rotation = Camera.main.transform.rotation;
+                newFlash.transform.parent = t.transform;
+                Destroy(newFlash, 2);
+
+                RaycastHit hit;
+                Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward + new Vector3(Random.Range(-PlayerStats.instance.recoil / 100, PlayerStats.instance.recoil / 100), 0, 0)), out hit, Mathf.Infinity, layerMask);
+                GameObject newFlash2 = Instantiate(groundBeam);
+                newFlash2.transform.position = hit.point + new Vector3(0, 2, 0);
+                Destroy(newFlash2, 2);
+
+                if (hit.transform.tag == "Enemy")
+                {
+                    hit.transform.GetComponent<EnemyHealth>().DealDamage(PlayerStats.instance.base_damage);
+                }
             }
         }
     }
