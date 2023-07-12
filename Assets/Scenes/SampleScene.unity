@@ -1498,6 +1498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  bloodParticle: {fileID: 4973661953677848045, guid: 1813dffa8261a1d48882d8d10568a90f, type: 3}
+  bloodDecal: {fileID: 286686820536703124, guid: e380b50ae20dd9340812cfefcb8ff19a, type: 3}
   glow: {fileID: 2100000, guid: ebf853fd1c4ca604280652869c20901e, type: 2}
 --- !u!1 &963194225
 GameObject:
