@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour
     public int mouseKey = 0;
     void Shoot()
     {
+        GetComponent<Animator>().SetTrigger("Shoot");
         Camera.main.GetComponent<CameraShake>().shakeDuration = 0.1f;
         foreach (Transform t in transform)
         {

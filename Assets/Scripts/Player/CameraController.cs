@@ -22,10 +22,10 @@ public class CameraController : MonoBehaviour
     {
         float s = Input.GetAxisRaw("Horizontal");
 
-        if (tilt <= s * 2.5f)
-            tilt += 0.3f;
-        else
-            tilt -= 0.3f;
+        if (tilt < s * 2.5f)
+            tilt += 0.1f;
+        else if(tilt>s* 2.5f)
+            tilt -= 0.1f;
     }
     // Update is called once per frame
     void Update()
