@@ -22,7 +22,7 @@ public class Gun : MonoBehaviour
             Destroy(newFlash, 2);
 
             RaycastHit hit;
-            Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask);
+            Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward+new Vector3(Random.Range(-PlayerStats.instance.recoil/100, PlayerStats.instance.recoil/100), 0, 0)), out hit, Mathf.Infinity, layerMask);
             GameObject newFlash2 = Instantiate(groundBeam);
             newFlash2.transform.position = hit.point+new Vector3(0,2,0);
             Destroy(newFlash2,2);

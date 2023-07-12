@@ -41,7 +41,7 @@ public class RayGun : MonoBehaviour
         }
         else
         {
-            if (loaded > 1.5f)
+            if (loaded > 1f)
                 Shoot();
             loaded = 0; 
         }

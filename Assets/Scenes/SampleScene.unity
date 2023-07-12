@@ -1382,9 +1382,9 @@ MonoBehaviour:
   speed: 15
   jump_power: 35
   jump_count: 2
-  recoil: 1
-  boost_capacity: 100
-  boost_power: 5
+  recoil: 5
+  boost_capacity: 0.3
+  boost_power: 2
   boost_max_power: 25
   base_damage: 3
 --- !u!1 &898423851

@@ -14,31 +14,25 @@ public class PlayerController : MonoBehaviour
 
     int jump_count = 2;
     int av_jumps = 0;
-
-    float boostPow = 0;
-
+    bool boosting = false;
+    float boostPow = 1;
+    Vector3 boostMove;
     bool fallShake = true;
+    float x = 0;
+    float y = 0;
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>(); 
     }
-    void Boost()
+    IEnumerator Boost()
     {
         gravity = 0;
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
-        float z = 0;
-        boostPow += PlayerStats.instance.boost_power/100;
-        boostPow = Mathf.Clamp(boostPow, 0, PlayerStats.instance.boost_max_power);
-
-        if (Input.GetKey(KeyCode.Space))
-            z = 1;
-        else
-            z = 0;
-
-        Vector3 boostMove = Camera.main.transform.forward * y * boostPow + transform.right * x * boostPow + transform.up*z*boostPow;
-        characterController.Move(boostMove * Time.deltaTime);
+        boosting = true;
+        boostPow = PlayerStats.instance.boost_power;
+        yield return new WaitForSeconds(PlayerStats.instance.boost_capacity);
+        boostPow = 1;
+        boosting = false;
     }
     void CheckForGround()
     {
@@ -75,23 +69,35 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         UpdateStats();
-
-        float x = Input.GetAxisRaw("Horizontal")* speed;
-        float y = Input.GetAxisRaw("Vertical") * speed;
-
-        Vector3 move = transform.forward * y + transform.right * x + transform.up*gravity;
-        characterController.Move(move * Time.deltaTime);
-        if(Input.GetKey(KeyCode.LeftShift))
-            Boost();
-        else
-            boostPow -= 1f;
+        
+        Vector3 move = Vector3.zero;
+        if (!boosting)
+        {
+            x = Input.GetAxisRaw("Horizontal") * speed;
+            y = Input.GetAxisRaw("Vertical") * speed;
+        }
+        move = transform.forward * y * boostPow + transform.right * x * boostPow + transform.up*gravity;
+        characterController.Move(move* boostPow * Time.deltaTime);
+        
+        Debug.Log(boostPow);
+        
+        if (Input.GetKeyDown(KeyCode.LeftShift)&&!boosting)
+            StartCoroutine(Boost());
         if (Input.GetKeyDown(KeyCode.Space) && av_jumps>0)
             Jump();
+        if (Input.GetKeyDown(KeyCode.LeftControl)&&gravity<-20)
+            gravity = -150;
         CheckForGround();
     }
-    private void FixedUpdate()
+    void Fall()
     {
         gravity -= gravityScale;
         gravity = Mathf.Clamp(gravity, -150, 100);
+        
+    }
+    private void FixedUpdate()
+    {
+        if(!boosting)
+            Fall();
     }
 }

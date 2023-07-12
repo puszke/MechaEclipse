@@ -17,7 +17,7 @@ public class PlayerStats : MonoBehaviour
     public float speed = 5;
     public float jump_power = 5;
     public int jump_count = 2;
-    public float recoil = 1;
+    public float recoil = 0.1f;
     public float boost_capacity = 100;
     public float boost_power = 25;
     public float boost_max_power = 50;
