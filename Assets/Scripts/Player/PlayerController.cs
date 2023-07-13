@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
     [SerializeField] private bool isGrounded = false;
     public float speed = 5;
+    public int health = 3;
     float gravityScale = 2f;
     [SerializeField] private float gravity=0;
     public LayerMask layerMask;
@@ -33,6 +34,21 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(PlayerStats.instance.boost_capacity);
         boostPow = 1;
         boosting = false;
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.transform.tag=="JumpPad")
+        {
+            gravity = 150;
+        }
+    }
+    public void TakeDamage()
+    {
+        health--;
+    }
+    public void ResetHealth()
+    {
+        health = PlayerStats.instance.health;
     }
     void CheckForGround()
     {
