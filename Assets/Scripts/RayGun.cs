@@ -17,6 +17,7 @@ public class RayGun : MonoBehaviour
     }
     void Shoot()
     {
+         GetComponent<Animator>().SetTrigger("ShootPower");
         Camera.main.GetComponent<CameraShake>().shakeDuration = 0.2f;
         loaded = 0;
         RaycastHit hit; 
