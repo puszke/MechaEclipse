@@ -23,4 +23,7 @@ public class PlayerStats : MonoBehaviour
     public float boost_max_power = 50;
     public float base_damage = 3;
     public float ray_load_time = 1;
+
+    public int difficulty = 0;
+     
 }

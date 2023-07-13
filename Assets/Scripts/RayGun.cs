@@ -33,6 +33,7 @@ public class RayGun : MonoBehaviour
 
         if (hit.transform.tag == "Enemy")
             hit.transform.GetComponent<EnemyHealth>().DealDamage(PlayerStats.instance.base_damage * 7f);
+        Destroy(newRay,5);
     }
     // Update is called once per frame
     void Update()

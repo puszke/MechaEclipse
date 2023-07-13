@@ -11,7 +11,8 @@ public class Skull : MonoBehaviour
     void Start()
     {
         enemyHealth = GetComponent<EnemyHealth>();
-        rb = GetComponent<Rigidbody>();     
+        rb = GetComponent<Rigidbody>();
+        StartCoroutine(resetSpeed());
     }
     void Die()
     {
@@ -23,6 +24,13 @@ public class Skull : MonoBehaviour
         {
             Die();
         }
+    }
+    IEnumerator resetSpeed()
+    {
+        yield return new WaitForSeconds(3);
+        if(Vector3.Distance(transform.position,player.position)>27)
+            rb.velocity = Vector3.zero;
+        StartCoroutine(resetSpeed());
     }
     // Update is called once per frame
     void Update()
