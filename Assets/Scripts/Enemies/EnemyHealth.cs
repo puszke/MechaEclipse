@@ -30,6 +30,13 @@ public class EnemyHealth : MonoBehaviour
         Destroy(newBlood, 4);
         Destroy(newBloodDecal, 10);
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.tag=="Kill")
+        {
+            DealDamage(999);
+        }
+    }
     public void DealDamage(float amount)
     {
         health -= amount;
