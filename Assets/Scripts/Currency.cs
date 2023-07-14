@@ -5,14 +5,10 @@ using UnityEngine;
 public class Currency : MonoBehaviour
 {
     public int value = 10;
-    bool seekPlayer = true;
+    public bool seekPlayer = false;
     private Transform player;
     float speed = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
@@ -24,6 +20,7 @@ public class Currency : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        value = PlayerStats.instance.currency_drop;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         if(seekPlayer)
         {

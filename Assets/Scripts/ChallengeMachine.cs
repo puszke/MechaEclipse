@@ -40,8 +40,9 @@ public class ChallengeMachine : MonoBehaviour
         {
             if (diff <= stageNames.Count)
             {
-                diffNow.text = stageNames[diff];
-                diffNext.text = stageNames[diff + 1];
+                StageManager.instance.currentStage = StageManager.instance.stages[PlayerStats.instance.difficulty];
+                diffNow.text = StageManager.instance.currentStage.name;
+                diffNext.text = StageManager.instance.stages[PlayerStats.instance.difficulty + 1].name;
                 if (Input.GetKeyDown(KeyCode.Q))
                 {
                     PlayerStats.instance.difficulty++;

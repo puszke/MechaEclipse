@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4561872081469915902}
   - component: {fileID: 4561872081469915900}
   - component: {fileID: 4561872081469915901}
+  - component: {fileID: 3205036847062155237}
   m_Layer: 0
   m_Name: SkullElite
   m_TagString: Enemy
@@ -112,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91425f71d805bf7449334d6a8b79209c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 20
 --- !u!114 &4561872081469915900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,10 +126,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 145205471ce6dd644bf8510d563d6be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 75
+  health: 25
   bloodParticle: {fileID: 4973661953677848045, guid: 1813dffa8261a1d48882d8d10568a90f, type: 3}
   bloodDecal: {fileID: 286686820536703124, guid: e380b50ae20dd9340812cfefcb8ff19a, type: 3}
   glow: {fileID: 2100000, guid: ebf853fd1c4ca604280652869c20901e, type: 2}
+  targetMesh: {fileID: 4561872081469915873}
+  currency: {fileID: 4924274836943302189, guid: 2e53cb7263970494289ee95599947c01, type: 3}
 --- !u!54 &4561872081469915901
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -144,3 +148,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &3205036847062155237
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4561872081469915879}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.03
+  m_Center: {x: 0, y: 0, z: 0}

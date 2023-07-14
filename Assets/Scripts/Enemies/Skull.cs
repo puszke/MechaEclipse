@@ -7,6 +7,7 @@ public class Skull : MonoBehaviour
     private Transform player;
     private Rigidbody rb;
     private EnemyHealth enemyHealth;
+    public float speed = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +41,6 @@ public class Skull : MonoBehaviour
         
         transform.LookAt(player);
 
-        rb.AddRelativeForce(new Vector3(0, 0, 10));
+        rb.AddRelativeForce(new Vector3(0, 0, speed));
     }
 }

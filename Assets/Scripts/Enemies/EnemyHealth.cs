@@ -9,11 +9,15 @@ public class EnemyHealth : MonoBehaviour
     public Material glow;
     private Material normalMat;
     public MeshRenderer targetMesh;
+    public GameObject currency;
+    [SerializeField] private bool cMesh = false;
     // Start is called before the first frame update
     void Start()
     {
+        
         normalMat = targetMesh.material;
     }
+    
     IEnumerator Glow()
     {
         GameObject newBlood = Instantiate(bloodParticle);
@@ -29,6 +33,12 @@ public class EnemyHealth : MonoBehaviour
     public void DealDamage(float amount)
     {
         health -= amount;
+        if(health<0)
+        {
+            GameObject newCurrency = Instantiate(currency, transform.position, Quaternion.identity);
+            
+            StageManager.instance.DestroyEnemyCheck();
+        }
         StartCoroutine(Glow());
     }
     // Update is called once per frame

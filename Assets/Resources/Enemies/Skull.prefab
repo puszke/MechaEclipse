@@ -214,6 +214,7 @@ MonoBehaviour:
   bloodDecal: {fileID: 286686820536703124, guid: e380b50ae20dd9340812cfefcb8ff19a, type: 3}
   glow: {fileID: 2100000, guid: ebf853fd1c4ca604280652869c20901e, type: 2}
   targetMesh: {fileID: 7713700588004993028}
+  currency: {fileID: 4924274836943302189, guid: 2e53cb7263970494289ee95599947c01, type: 3}
 --- !u!54 &1276473541576088528
 Rigidbody:
   m_ObjectHideFlags: 0

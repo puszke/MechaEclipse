@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7216931636894326738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7216931636894326736}
+  - component: {fileID: 7216931636894326739}
+  m_Layer: 0
+  m_Name: StageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7216931636894326736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216931636894326738}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 21.86, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7216931636894326739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216931636894326738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e86d70eee90728045a721fdeeb26e7bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterSpawner: {fileID: 2566544487408408072, guid: ce00a5dced4aa504a83a9aec0d62d69c, type: 3}
+  eNumber: 10
+  currentEnemies: 0
+  spawning: 0
+  stages:
+  - name: E
+    max_enemy_count: 30
+    max_elite_count: 5
+    max_enemy_hp_scaling: 1.25
+    currency_drop: 1
+    sub_stages: 1
+  - name: D
+    max_enemy_count: 35
+    max_elite_count: 7
+    max_enemy_hp_scaling: 2
+    currency_drop: 1.25
+    sub_stages: 1
+  - name: C
+    max_enemy_count: 55
+    max_elite_count: 10
+    max_enemy_hp_scaling: 3
+    currency_drop: 2
+    sub_stages: 1
+  - name: B
+    max_enemy_count: 70
+    max_elite_count: 20
+    max_enemy_hp_scaling: 5
+    currency_drop: 4
+    sub_stages: 2
+  - name: A
+    max_enemy_count: 100
+    max_elite_count: 30
+    max_enemy_hp_scaling: 8
+    currency_drop: 5
+    sub_stages: 2
+  - name: S
+    max_enemy_count: 120
+    max_elite_count: 100
+    max_enemy_hp_scaling: 8
+    currency_drop: 8
+    sub_stages: 3

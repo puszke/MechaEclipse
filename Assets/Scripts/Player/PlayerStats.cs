@@ -26,4 +26,5 @@ public class PlayerStats : MonoBehaviour
 
     public int difficulty = 0;
     public int currency = 0;
+    public int currency_drop = 10;
 }
