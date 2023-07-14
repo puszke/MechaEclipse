@@ -27,7 +27,7 @@ public class Skull : MonoBehaviour
     }
     IEnumerator resetSpeed()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(Random.Range(4,8));
         if(Vector3.Distance(transform.position,player.position)>27)
             rb.velocity = Vector3.zero;
         StartCoroutine(resetSpeed());
