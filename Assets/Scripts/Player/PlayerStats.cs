@@ -25,5 +25,5 @@ public class PlayerStats : MonoBehaviour
     public float ray_load_time = 1;
 
     public int difficulty = 0;
-     
+    public int currency = 0;
 }

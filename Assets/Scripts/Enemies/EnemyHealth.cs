@@ -8,10 +8,11 @@ public class EnemyHealth : MonoBehaviour
     public GameObject bloodParticle, bloodDecal;
     public Material glow;
     private Material normalMat;
+    public MeshRenderer targetMesh;
     // Start is called before the first frame update
     void Start()
     {
-        normalMat = GetComponent<MeshRenderer>().material;
+        normalMat = targetMesh.material;
     }
     IEnumerator Glow()
     {
@@ -19,9 +20,9 @@ public class EnemyHealth : MonoBehaviour
         GameObject newBloodDecal = Instantiate(bloodDecal);
         newBlood.transform.position = transform.position;
         newBloodDecal.transform.position = new Vector3(transform.position.x+Random.Range(-8,8), 0, transform.position.z + Random.Range(-8, 8));
-        GetComponent<MeshRenderer>().material = glow;
+        targetMesh.material = glow;
         yield return new WaitForSeconds(0.1f);
-        GetComponent<MeshRenderer>().material = normalMat;
+        targetMesh.material = normalMat;
         Destroy(newBlood, 4);
         Destroy(newBloodDecal, 10);
     }
