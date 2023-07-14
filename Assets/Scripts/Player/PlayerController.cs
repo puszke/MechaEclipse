@@ -94,7 +94,8 @@ public class PlayerController : MonoBehaviour
         }
         move = transform.forward * y * boostPow + transform.right * x * boostPow + transform.up*gravity;
         characterController.Move(move* boostPow * Time.deltaTime);
-       
+        
+        Debug.Log(boostPow);
         
         if (Input.GetKeyDown(KeyCode.LeftShift)&&!boosting)
             StartCoroutine(Boost());
