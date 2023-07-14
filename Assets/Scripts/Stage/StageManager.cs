@@ -78,7 +78,7 @@ public class StageManager : MonoBehaviour
 
             eliteSpawned++;
             Debug.Log(enemies);
-            GameObject choosenEnemy = enemies[Random.Range(0, enemies.Length - 1)] as GameObject;
+            GameObject choosenEnemy = enemies[Random.Range(0, enemies.Length)] as GameObject;
             GameObject newEnemy = Instantiate(monsterSpawner);
             newEnemy.transform.position = new Vector3(Random.Range(-70, 70), 0, Random.Range(-70, 70));
             newEnemy.GetComponent<MonsterSpawner>().monster = choosenEnemy;
