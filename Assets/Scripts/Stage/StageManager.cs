@@ -19,27 +19,8 @@ public class StageManager : MonoBehaviour
 
         GameObject newMap = Instantiate(map);
         newMap.transform.position = new Vector3(0, 0, 0);
-        StartCoroutine(StartSpawning());
     }
-    IEnumerator StartSpawning()
-    {
-        transform.position = new Vector3(0, -99, 0);
-        yield return new WaitForSeconds(3);
-        StartCoroutine(SpawnEnemies());
-    }
-    IEnumerator SpawnEnemies()
-    {
-        for (int i = 0; i < 50; i++)
-        {
-            Object[] enemies = Resources.LoadAll("Enemies/");
-            Debug.Log(enemies);
-            GameObject newEnemy = Instantiate(enemies[Random.Range(0, enemies.Length - 1)] as GameObject);
-            newEnemy.transform.position = new Vector3(Random.Range(-70, 70), 0, Random.Range(-70, 70));
 
-            yield return new WaitForSeconds(0.1f);
-        }
-            //StartCoroutine(SpawnEnemies());
-    }
     // Start is called before the first frame update
     void Start()
     {
