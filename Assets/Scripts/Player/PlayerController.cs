@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     private CharacterController characterController;
@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     float gravityScale = 2f;
     [SerializeField] private float gravity=0;
     public LayerMask layerMask;
+    [SerializeField] private Image boostImg;
 
     int jump_count = 2;
     int av_jumps = 0;
@@ -21,13 +22,16 @@ public class PlayerController : MonoBehaviour
     bool fallShake = true;
     float x = 0;
     float y = 0;
+    public float av_boost = 100;
     // Start is called before the first frame update
     void Start()
     {
-        characterController = GetComponent<CharacterController>(); 
+        characterController = GetComponent<CharacterController>();
+        av_boost = PlayerStats.instance.boost_max_power;
     }
     IEnumerator Boost()
     {
+        av_boost -= 25;
         gravity = 0;
         boosting = true;
         boostPow = PlayerStats.instance.boost_power;
@@ -85,7 +89,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         UpdateStats();
-        
+        boostImg.fillAmount = av_boost / PlayerStats.instance.boost_max_power;
         Vector3 move = Vector3.zero;
         if (!boosting)
         {
@@ -95,8 +99,7 @@ public class PlayerController : MonoBehaviour
         move = transform.forward * y * boostPow + transform.right * x * boostPow + transform.up*gravity;
         characterController.Move(move* boostPow * Time.deltaTime);
        
-        
-        if (Input.GetKeyDown(KeyCode.LeftShift)&&!boosting)
+        if (Input.GetKeyDown(KeyCode.LeftShift)&&!boosting&&av_boost>25)
             StartCoroutine(Boost());
         if (Input.GetKeyDown(KeyCode.Space) && av_jumps>0)
             Jump();
@@ -112,6 +115,8 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        av_boost += PlayerStats.instance.boost_reload / 10;
+        av_boost = Mathf.Clamp(av_boost, 0, PlayerStats.instance.boost_max_power);
         if(!boosting)
             Fall();
     }

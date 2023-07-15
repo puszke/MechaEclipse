@@ -9,6 +9,7 @@ TagManager:
   - JumpPad
   - Map
   - Currency
+  - Kill
   layers:
   - Default
   - TransparentFX

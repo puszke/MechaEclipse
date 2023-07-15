@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     public float health = 5;
@@ -11,10 +11,10 @@ public class EnemyHealth : MonoBehaviour
     public MeshRenderer targetMesh;
     public GameObject currency;
     [SerializeField] private bool cMesh = false;
+    [SerializeField] private GameObject dmg_txt;
     // Start is called before the first frame update
     void Start()
     {
-        
         normalMat = targetMesh.material;
     }
     
@@ -30,9 +30,19 @@ public class EnemyHealth : MonoBehaviour
         Destroy(newBlood, 4);
         Destroy(newBloodDecal, 10);
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.tag=="Kill")
+        {
+            DealDamage(999);
+        }
+    }
     public void DealDamage(float amount)
     {
         health -= amount;
+        GameObject newDmgTxt = Instantiate(dmg_txt, transform.position, Quaternion.identity);
+        newDmgTxt.transform.GetChild(0).GetComponent<Text>().text = amount.ToString();
+        Destroy(newDmgTxt, 3);
         if(health<0)
         {
             GameObject newCurrency = Instantiate(currency, transform.position, Quaternion.identity);

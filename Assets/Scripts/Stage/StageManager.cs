@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 public class StageManager : MonoBehaviour
 {
+    public LayerMask layerMask;
     public static StageManager instance;
     [SerializeField] private GameObject monsterSpawner;
     public int eNumber = 10;
-    public int currentEliteMax = -1;
+    public int currentEliteMax = -10;
     public int currentEnemies = 0;
     public bool spawning = false;
     public List<StageDifficulty> stages;
@@ -29,10 +30,10 @@ public class StageManager : MonoBehaviour
     }
     void LoadStageProperties()
     {
-        eNumber += 5;
-        currentEliteMax += 2;
+        eNumber += 3;
         eNumber = Mathf.Clamp(eNumber, 0, currentStage.max_enemy_count);
-        currentEliteMax = Mathf.Clamp(currentEliteMax, 0, currentStage.max_elite_count);
+        currentEliteMax = Mathf.Clamp(currentEliteMax, -10, currentStage.max_elite_count);
+        currentEliteMax += 2;
     }
     public void LoadLevel()
     {
@@ -80,7 +81,10 @@ public class StageManager : MonoBehaviour
             Debug.Log(enemies);
             GameObject choosenEnemy = enemies[Random.Range(0, enemies.Length - 1)] as GameObject;
             GameObject newEnemy = Instantiate(monsterSpawner);
-            newEnemy.transform.position = new Vector3(Random.Range(-70, 70), 0, Random.Range(-70, 70));
+            RaycastHit hit;
+            transform.position = new Vector3(Random.Range(-70, 70), 50, Random.Range(-70, 70));
+            Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, layerMask);
+            newEnemy.transform.position = hit.point;
             newEnemy.GetComponent<MonsterSpawner>().monster = choosenEnemy;
             newEnemy.GetComponent<MonsterSpawner>().monster_hp = currentStage.max_enemy_hp_scaling;
             spawning = true;
