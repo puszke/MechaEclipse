@@ -13,6 +13,7 @@ public class StageManager : MonoBehaviour
     public bool spawning = false;
     public List<StageDifficulty> stages;
     public StageDifficulty currentStage;
+    public GameObject machines;
 
     [System.Serializable]
     public class StageDifficulty
@@ -56,6 +57,7 @@ public class StageManager : MonoBehaviour
             foreach(GameObject c in GameObject.FindGameObjectsWithTag("Currency"))
             {
                 c.GetComponent<Currency>().seekPlayer = true;
+                machines.SetActive(true);
             }
         }
     }
@@ -79,7 +81,7 @@ public class StageManager : MonoBehaviour
 
             eliteSpawned++;
             Debug.Log(enemies);
-            GameObject choosenEnemy = enemies[Random.Range(0, enemies.Length - 1)] as GameObject;
+            GameObject choosenEnemy = enemies[Random.Range(0, enemies.Length)] as GameObject;
             GameObject newEnemy = Instantiate(monsterSpawner);
             RaycastHit hit;
             transform.position = new Vector3(Random.Range(-70, 70), 50, Random.Range(-70, 70));

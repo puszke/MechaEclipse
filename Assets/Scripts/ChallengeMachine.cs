@@ -55,6 +55,7 @@ public class ChallengeMachine : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.E))
             {
                 StageManager.instance.LoadLevel();
+                transform.parent.gameObject.SetActive(false);
             }
         }
     }

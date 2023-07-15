@@ -8,7 +8,7 @@ public class EnemyHealth : MonoBehaviour
     public GameObject bloodParticle, bloodDecal;
     public Material glow;
     private Material normalMat;
-    public MeshRenderer targetMesh;
+    public SkinnedMeshRenderer targetMesh;
     public GameObject currency;
     [SerializeField] private bool cMesh = false;
     [SerializeField] private GameObject dmg_txt;
