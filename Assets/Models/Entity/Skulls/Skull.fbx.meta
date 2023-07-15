@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fb65d2233c1cb6342853fe05d6497de8
+guid: fc9842c9af20d1d4c98c7cf3dd01d9a1
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: SkullsDef|Attack
-      takeName: SkullsDef|Attack
-      internalID: -8814261139406071286
+      name: SkullDef|Attack_1
+      takeName: SkullDef|Attack_1
+      internalID: 6050382915394725818
       firstFrame: 0
-      lastFrame: 23
+      lastFrame: 13
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -62,9 +62,38 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: SkullsDef|DefPose
-      takeName: SkullsDef|DefPose
-      internalID: -8448913173556841698
+      name: SkullDef|Attack_2
+      takeName: SkullDef|Attack_2
+      internalID: 4755907218279471617
+      firstFrame: 0
+      lastFrame: 13
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: SkullDef|defPose
+      takeName: SkullDef|defPose
+      internalID: 8267382556927514744
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0
@@ -91,11 +120,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: SkullsDef|Floating
-      takeName: SkullsDef|Floating
-      internalID: -3002434878613331236
+      name: SkullDef|Float
+      takeName: SkullDef|Float
+      internalID: 5636141442849593286
       firstFrame: 0
-      lastFrame: 80
+      lastFrame: 35
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
