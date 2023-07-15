@@ -6129,6 +6129,7 @@ MonoBehaviour:
   targetMesh: {fileID: 0}
   currency: {fileID: 4924274836943302189, guid: 2e53cb7263970494289ee95599947c01, type: 3}
   cMesh: 0
+  dmg_txt: {fileID: 6686469587160457671, guid: 889b5bfbbc27778408bd399a2e7ef6e3, type: 3}
 --- !u!54 &9077925480772998829
 Rigidbody:
   m_ObjectHideFlags: 0
