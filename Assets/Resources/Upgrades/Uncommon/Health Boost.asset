@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5398d7bec659dc6429edf147817ee517, type: 3}
+  m_Name: Health Boost
+  m_EditorClassIdentifier: 
+  name: Turtle
+  description: Increases your health by 20% but reduces your attack speed by 10%
+  img: {fileID: 21300000, guid: 4300295a415b919499c49967214dd1cd, type: 3}
+  advanced: 0
+  advancedComponent: {fileID: 0}
+  health: 110
+  speed: 0
+  jump_power: 0
+  jump_count: 1
+  recoil: 0
+  boost_capacity: 0
+  boost_power: 0
+  boost_max_power: 0
+  boost_reload: 0
+  base_damage: 0
+  ray_load_time: 0
+  shoot_delay: 90
+  difficulty: 0
+  currency: 0
+  currency_drop: 0

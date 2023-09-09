@@ -10,6 +10,7 @@ TagManager:
   - Map
   - Currency
   - Kill
+  - Upgrade
   layers:
   - Default
   - TransparentFX

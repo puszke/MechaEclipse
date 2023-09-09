@@ -24,7 +24,7 @@ public class PlayerStats : MonoBehaviour
     public float boost_reload = 1;
     public float base_damage = 3;
     public float ray_load_time = 1;
-
+    public float shoot_delay = 0.1f;
     public int difficulty = 0;
     public int currency = 0;
     public int currency_drop = 10;

@@ -29,10 +29,7 @@ public class Deamon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(health.health<=0)
-        {
-            Destroy(this.gameObject);
-        }
+        
         player = GameObject.FindGameObjectWithTag("Player").transform;
         
         transform.LookAt(player);

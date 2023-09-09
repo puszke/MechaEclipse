@@ -9,8 +9,10 @@ public class Gun : MonoBehaviour
     public LayerMask layerMask;
     public GameObject muzzleFlash, groundBeam;
     public int mouseKey = 0;
-    void Shoot()
+    public bool canShoot = true;
+    IEnumerator Shoot()
     {
+        canShoot = false; 
         GetComponent<Animator>().SetTrigger("Shoot");
         Camera.main.GetComponent<CameraShake>().shakeDuration = 0.1f;
         foreach (Transform t in transform)
@@ -36,6 +38,8 @@ public class Gun : MonoBehaviour
                 }
             }
         }
+        yield return new WaitForSeconds(PlayerStats.instance.shoot_delay);
+        canShoot = true;
     }
 
     // Start is called before the first frame update
@@ -47,9 +51,9 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(mouseKey))
+        if(Input.GetMouseButtonDown(mouseKey)&&canShoot)
         {
-            Shoot();
+            StartCoroutine(Shoot());
         }
     }
 }

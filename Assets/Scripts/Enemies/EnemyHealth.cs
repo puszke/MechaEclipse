@@ -11,7 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public SkinnedMeshRenderer targetMesh;
     public GameObject currency;
     [SerializeField] private bool cMesh = false;
-    [SerializeField] private GameObject dmg_txt;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -40,14 +40,13 @@ public class EnemyHealth : MonoBehaviour
     public void DealDamage(float amount)
     {
         health -= amount;
-        GameObject newDmgTxt = Instantiate(dmg_txt, transform.position, Quaternion.identity);
-        newDmgTxt.transform.GetChild(0).GetComponent<Text>().text = amount.ToString();
-        Destroy(newDmgTxt, 3);
+        
         if(health<0)
         {
             GameObject newCurrency = Instantiate(currency, transform.position, Quaternion.identity);
             
             StageManager.instance.DestroyEnemyCheck();
+            Destroy(this.gameObject);
         }
         StartCoroutine(Glow());
     }

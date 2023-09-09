@@ -13,18 +13,18 @@ public class Upgrade : ScriptableObject
     public Component advancedComponent;
 
     public int health = 0;
-    public float speed = 0;
-    public float jump_power = 0;
+    public float speed = 100;
+    public float jump_power = 100;
     public int jump_count = 0;
-    public float recoil = 0f;
-    public float boost_capacity = 0;
-    public float boost_power = 0;
-    public float boost_max_power = 0;
-    public float boost_reload = 0;
-    public float base_damage = 0;
-    public float ray_load_time = 0;
-
-    public int difficulty = 0;
-    public int currency = 0;
-    public int currency_drop = 0;
+    public float recoil = 100f;
+    public float boost_capacity = 100;
+    public float boost_power = 100;
+    public float boost_max_power = 100;
+    public float boost_reload = 100;
+    public float base_damage = 100;
+    public float ray_load_time = 100;
+    public float shoot_delay = 100;
+    public int difficulty = 100;
+    public int currency = 100;
+    public int currency_drop = 100;
 }
